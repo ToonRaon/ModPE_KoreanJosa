@@ -11,7 +11,7 @@ const FINAL = 28; //종성 - (없음), ㄱ, ㄲ, ㄳ, ㄴ, ㄵ, ㄶ, ㄷ, ㄹ, �
 const FIRST_KOREAN_OF_UNICODE = 44032; //유니코드에서 첫번째 한글 문자인 '가'의 고유번호. 44033은 각, 44034는 갂... 과 같은 순서로 55203번째까지 한글이 존재하고있다.
 
 function josa(kor, josa) {
-	var finalCode = kor.charCodeAt(kor.legnth - 1) - FIRST_KOREAN_OF_UNICODE; //kor의 마지막 문자의 유니코드 번호
+	var finalCode = kor.charCodeAt(kor.length - 1) - FIRST_KOREAN_OF_UNICODE; //kor의 마지막 문자의 유니코드 번호
 	
 	if(josa == "이" || josa == "가")
 		josa = (((finalCode - 44032) % (MEDIAL * FINAL)) % FINAL == 0 ? "가" : "이");
