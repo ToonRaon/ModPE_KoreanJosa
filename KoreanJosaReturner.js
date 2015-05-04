@@ -14,15 +14,15 @@ function josa(kor, josa) {
 	var finalCode = kor.charCodeAt(kor.length - 1) - FIRST_KOREAN_OF_UNICODE; //kor의 마지막 문자의 유니코드 번호
 	
 	if(josa == "이" || josa == "가")
-		josa = (((finalCode - 44032) % (MEDIAL * FINAL)) % FINAL == 0 ? "가" : "이");
+		josa = ((finalCode % (MEDIAL * FINAL)) % FINAL == 0 ? "가" : "이");
 	else if(josa == "은" || josa == "는")
-		josa = (((finalCode - 44032) % (MEDIAL * FINAL)) % FINAL == 0 ? "는" : "은");
+		josa = ((finalCode % (MEDIAL * FINAL)) % FINAL == 0 ? "는" : "은");
 	else if(josa == "을" || josa == "를")
-		josa = (((finalCode - 44032) % (MEDIAL * FINAL)) % FINAL == 0 ? "를" : "을");
+		josa = ((finalCode % (MEDIAL * FINAL)) % FINAL == 0 ? "를" : "을");
 	else if(josa == "와" || josa == "과")
-		josa = (((finalCode - 44032) % (MEDIAL * FINAL)) % FINAL == 0 ? "와" : "과");
+		josa = ((finalCode % (MEDIAL * FINAL)) % FINAL == 0 ? "와" : "과");
 	
 	return (kor + josa);
 }
 
-//josa("마우스", "은"); -> "마우스는"이 리턴됩니다.
+print(josa("마우스", "은")); //마우스는
